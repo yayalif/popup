@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>demo</title>
+<style>
+ ul {
+	max-height: 300px;
+	overflow: hidden;
+    transition: max-height .5s;
+ }
+ li {
+	padding: 10px;
+	background: #999;
+	
+	font-size: 32px;
+	list-style: none;
+	
+ }
+ h3 {
+	font-size: 32px;
+ }
+ 
+</style> 
+</head> 
+<body>
+<h3>列表显示与隐藏</h3>
+<ul>
+	<li>锄禾日当午</li>
+	<li>汗滴禾下土</li>
+	<li>谁知盘中餐</li>
+	<li>粒粒皆辛苦</li>
+</ul>
+ <script type="text/javascript"> 
+var h3 = document.getElementsByTagName('h3')[0]
+var ul = document.getElementsByTagName('ul')[0]
+console.log(ul)
+var show = false
+h3.onclick = function() {
+	if(show) // true: 展开
+	{
+		// 展开后的max-height值，只需要设定
+		// 为保证比展开内容高度大的值即可，
+		// 在max-height值比height值大的情况下，
+		// 元素仍会默认采用自身的高度值，即auto；
+		// 如此一来，一个高度不定的元素展开收起动画效果就实现了。
+		ul.style = 'max-height:300px; overflow: hidden;  transition: max-height .5s;'; 
+	} else {
+		ul.style = 'max-height: 0; overflow: hidden; transition: max-height .5s;';  
+	}
+	
+	show = !show
+}
+
+ </script>
+</body> 
+</html>
